@@ -27,3 +27,46 @@ A function is called a pure function if it always returns the same result for sa
 {
     /* function body */
 }
+
+## 1. Liskov Substitution Principle
+If S is a subtype of T, then objects of type T in a program may be replaced with objects of type S without altering any of the desirable properties of that program.
+
+- When a child Class cannot perform the same actions as its parent Class, this can cause bugs.
+- If you have a Class and create another Class from it, it becomes a parent and the new Class becomes a child. The child Class should be able to do everything the parent Class can do. This process is called Inheritance.
+- The child Class should be able to process the same requests and deliver the same result as the parent Class or it could deliver a result that is of the same type.
+
+## In Functional Programming
+We create different functions to perform perticular tasks and we use -
+
+> Function as a first class citizen
+ When we treat a function as a value, we consider it a first-class function.
+ In general, a first-class function can be:
+ > assigned to a variable
+ > passed as an argument to other functions
+ > returned as a value from other functions
+> Higher Order Function
+   A higher-order function has at least one of the following properties:
+   > Takes one or more functions as parameters
+   > Returns a function as a result
+  
+## Let's take A Look How We Can Impl It in Functional Programming
+
+
+# Experience of functional Programming
+In functional programming approach we code less but do more in programming or to execute a task.
+
+## 2. Interface Segregation principle
+Clients should not be forced to depend on methods that they do not use.
+
+We made functions related to coffee shop in CoffeeShop class and functions related to customer in Customer class
+
+Functional programming appraoch
+
+## 3. Dependency Inversion
+   - High-level modules should not depend on low-level modules. Both should depend on the abstraction.
+   - Abstractions should not depend on details. Details should depend on abstractions.
+> High-level Module(or Class): Class that executes an action with a tool.
+> Low-level Module (or Class): The tool that is needed to execute the action
+> Abstraction: Represents an interface that connects the two Classes
+
+## Code implementation of DIP
