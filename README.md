@@ -27,7 +27,8 @@ A function is called a pure function if it always returns the same result for sa
                 }
 
 ## 1. Liskov Substitution Principle
-    > If S is a subtype of T, then objects of type T in a program may be replaced with objects of type S without altering any of the desirable properties of that         program.
+    > If S is a subtype of T, then objects of type T in a program may be replaced with objects of type S without altering any of the desirable 
+    properties of that program.
 
 - When a child Class cannot perform the same actions as its parent Class, this can cause bugs.
 - If you have a Class and create another Class from it, it becomes a parent and the new Class becomes a child. The child Class should be able to do everything the     parent Class can do. This process is called Inheritance.
