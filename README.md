@@ -15,8 +15,6 @@ It’s important to compare these programming ways to identify the differences a
 
 Lambda calculus is a framework developed by Alonzo Church to study computations with functions. It can be called the smallest programming language in the world. It gives the definition of what is computable. Anything that can be computed by lambda calculus is computable. It is equivalent to the Turing machine in its ability to compute. It provides a theoretical framework for describing functions and their evaluation. It forms the basis of almost all current functional programming languages. 
 
-
-
 ## Pure Functions :-
 
 A function is called a pure function if it always returns the same result for same argument values and it has no side effects like modifying an argument (or global variable) or outputting something. The only result of calling a pure function is the return value. Examples of pure functions are strlen(), pow(), sqrt() etc. Examples of impure functions are printf(), rand(), time(), etc.
@@ -24,63 +22,65 @@ A function is called a pure function if it always returns the same result for sa
 ## Example :-
 
 		__attribute__ ((pure)) return-type fun-name(arguments1, …)
-{
-    /* function body */
-}
+		{
+                 /* function body */
+                }
 
 ## 1. Liskov Substitution Principle
 If S is a subtype of T, then objects of type T in a program may be replaced with objects of type S without altering any of the desirable properties of that program.
 
 - When a child Class cannot perform the same actions as its parent Class, this can cause bugs.
-- If you have a Class and create another Class from it, it becomes a parent and the new Class becomes a child. The child Class should be able to do everything the parent Class can do. This process is called Inheritance.
+- If you have a Class and create another Class from it, it becomes a parent and the new Class becomes a child. The child Class should be able to do everything the     parent Class can do. This process is called Inheritance.
 - The child Class should be able to process the same requests and deliver the same result as the parent Class or it could deliver a result that is of the same type.
 
 ## In Functional Programming
 We create different functions to perform perticular tasks and we use -
 
-> Function as a first class citizen
- When we treat a function as a value, we consider it a first-class function.
- In general, a first-class function can be:
+# Function as a first class citizen
+- When we treat a function as a value, we consider it a first-class function.
+- In general, a first-class function can be:
  > assigned to a variable
  > passed as an argument to other functions
  > returned as a value from other functions
-> Higher Order Function
+# Higher Order Function
    A higher-order function has at least one of the following properties:
    > Takes one or more functions as parameters
    > Returns a function as a result
   
 ## Let's take A Look How We Can Impl It in Functional Programming
- Account.scala
-  package com.knoldus.LSP
-  abstract class Account(var amount: Double)
+   
+   Account.scala
+       package com.knoldus.LSP
+       abstract class Account(var amount: Double)
 
- CurrentAccount,scala
-  package com.knoldus.LSP
-  class CurrentAccount(var name: String, var amount1: Double) extends Account(amount1)
+   CurrentAccount,scala
+       package com.knoldus.LSP
+       class CurrentAccount(var name: String, var amount1: Double) extends Account(amount1)
   
- Printer.scala 
-  package com.knoldus.LSP
-  case class Printer(message: String) {
-  def printMessage = println(message)
-  }
-  SavingAccount.scala
-  package com.knoldus.LSP
-  class SavingAccount(var name: String, var amount1: Double) extends Account(amount1)
+   Printer.scala 
+       package com.knoldus.LSP
+       case class Printer(message: String) {
+       def printMessage = println(message)
+       }
+       
+   SavingAccount.scala
+       package com.knoldus.LSP
+       class SavingAccount(var name: String, var amount1: Double) extends Account(amount1)
   
- TestLsp.scala
-  object TestLSP {
-  val withdraw = (account: Account, amount:Double)=>{
-    account.amount = account.amount - amount
-    "ALERT: You've withdrawn Rs. " + amount + " Available Bal Rs.  " + account.amount
-  }
-  val deposit = (account: Account, amount:Double)=>{
-    account.amount = account.amount + amount
-    "UPDATE: Rs. " + amount + " has been deposited into your account. Avl Bal INR " + account.amount
+   TestLsp.scala
+       object TestLSP {
+       val withdraw = (account: Account, amount:Double)=>{
+       account.amount = account.amount - amount
+       "ALERT: You've withdrawn Rs. " + amount + " Available Bal Rs.  " + account.amount
+       }
+       val deposit = (account: Account, amount:Double)=>{
+       account.amount = account.amount + amount
+       "UPDATE: Rs. " + amount + " has been deposited into your account. Avl Bal INR " + account.amount
     
- Output :-
-  ALERT: You've withdrawn Rs. 1500.0 Available Bal Rs.  43500.89
-  ALERT: You've withdrawn Rs. 2000.0 Available Bal Rs.  28000.23
-  UPDATE: Rs. 1000.0 has been deposited into your account. Avl Bal INR 44500.89
+   Output :-
+       ALERT: You've withdrawn Rs. 1500.0 Available Bal Rs.  43500.89
+       ALERT: You've withdrawn Rs. 2000.0 Available Bal Rs.  28000.23
+       UPDATE: Rs. 1000.0 has been deposited into your account. Avl Bal INR 44500.89
     
 # Experience of functional Programming
 In functional programming approach we code less but do more in programming or to execute a task.
