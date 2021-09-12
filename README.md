@@ -39,9 +39,9 @@ We create different functions to perform perticular tasks and we use -
 # Function as a first class citizen
 - When we treat a function as a value, we consider it a first-class function.
 - In general, a first-class function can be:
- > assigned to a variable
- > passed as an argument to other functions
- > returned as a value from other functions
+ > Assigned to a variable
+ > Passed as an argument to other functions
+ > Returned as a value from other functions
 # Higher Order Function
    A higher-order function has at least one of the following properties:
    > Takes one or more functions as parameters
@@ -49,25 +49,25 @@ We create different functions to perform perticular tasks and we use -
   
 ## Let's take A Look How We Can Impl It in Functional Programming
    
-   Account.scala
+  # Account.scala
        package com.knoldus.LSP
        abstract class Account(var amount: Double)
 
-   CurrentAccount,scala
+  # CurrentAccount,scala
        package com.knoldus.LSP
        class CurrentAccount(var name: String, var amount1: Double) extends Account(amount1)
   
-   Printer.scala 
+  # Printer.scala 
        package com.knoldus.LSP
        case class Printer(message: String) {
        def printMessage = println(message)
        }
        
-   SavingAccount.scala
+  # SavingAccount.scala
        package com.knoldus.LSP
        class SavingAccount(var name: String, var amount1: Double) extends Account(amount1)
   
-   TestLsp.scala
+  # TestLsp.scala
        object TestLSP {
        val withdraw = (account: Account, amount:Double)=>{
        account.amount = account.amount - amount
@@ -77,7 +77,7 @@ We create different functions to perform perticular tasks and we use -
        account.amount = account.amount + amount
        "UPDATE: Rs. " + amount + " has been deposited into your account. Avl Bal INR " + account.amount
     
-   Output :-
+  # Output :-
        ALERT: You've withdrawn Rs. 1500.0 Available Bal Rs.  43500.89
        ALERT: You've withdrawn Rs. 2000.0 Available Bal Rs.  28000.23
        UPDATE: Rs. 1000.0 has been deposited into your account. Avl Bal INR 44500.89
