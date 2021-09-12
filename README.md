@@ -120,9 +120,10 @@ We made functions related to coffee shop in CoffeeShop class and functions relat
 ## 3. Dependency Inversion
    - High-level modules should not depend on low-level modules. Both should depend on the abstraction.
    - Abstractions should not depend on details. Details should depend on abstractions.
-         1. High-level Module(or Class): Class that executes an action with a tool.
-         2. Low-level Module (or Class): The tool that is needed to execute the action.
-         3. Abstraction: Represents an interface that connects the two Classes.
+    
+     1. High-level Module(or Class): Class that executes an action with a tool.
+     2. Low-level Module (or Class): The tool that is needed to execute the action.
+     3. Abstraction: Represents an interface that connects the two Classes.
 
 ## Code implementation of DIP
 
