@@ -39,13 +39,13 @@ We create different functions to perform perticular tasks and we use -
 # Function as a first class citizen
 - When we treat a function as a value, we consider it a first-class function.
 - In general, a first-class function can be:
-  Assigned to a variable
-  Passed as an argument to other functions
-  Returned as a value from other functions
+  > Assigned to a variable
+  > Passed as an argument to other functions
+  > Returned as a value from other functions
 # Higher Order Function
-   A higher-order function has at least one of the following properties:
-    Takes one or more functions as parameters
-    Returns a function as a result
+- A higher-order function has at least one of the following properties:
+  > Takes one or more functions as parameters
+  > Returns a function as a result
   
 ## Let's take A Look How We Can Impl It in Functional Programming
    
@@ -92,6 +92,44 @@ We made functions related to coffee shop in CoffeeShop class and functions relat
 
 Functional programming appraoch
 
+   # CallingRect.scala
+        package com.knoldus.ISP
+        object CallingRect {
+        def main(args: Array[String]): Unit = {
+        val rect = new Rectangle(x = 0, y = 3, width = 3, height = 2)
+        rect.description
+	}
+       }
+
+   # DEscription.scala
+        trait Description {
+        def description: String
+	}
+        trait Coordinates extends Description {
+        def x: Int
+	def y: Int
+	def description: String ="Coordinates (" + x + ", " + y + ")"
+	}
+	trait Area {
+	def area: Double
+	}
+	class Rectangle(val x: Int,
+                val y: Int,
+                val width: Int,
+                val height: Int)
+	extends Coordinates with Description with Area {
+	val area: Double = width * height
+	println("The area of rectangle is " + area)
+	override def description: String =super.description + " - Rectangle " + width + " * " + height
+	}
+	  class Square(val width:Int) extends Area {
+	  override def area: Double = width * width
+	  println("The area of square is " + area)
+	}
+	
+   # Output :-
+        The area of rectangle is 6.0
+	
 ## 3. Dependency Inversion
    - High-level modules should not depend on low-level modules. Both should depend on the abstraction.
    - Abstractions should not depend on details. Details should depend on abstractions.
@@ -100,3 +138,40 @@ Functional programming appraoch
 > Abstraction: Represents an interface that connects the two Classes.
 
 ## Code implementation of DIP
+
+  # Cappuccino.scala
+        class Cappuccino extends CoffeeMaker {
+	override def makeCoffee(): String = {
+	"Makes a Cappuccino"
+        }
+       }
+
+  # CoffeeMaker.scala
+       trait CoffeeMaker {
+       def makeCoffee(): String
+       }
+
+  # CoffeeServer.scala 
+       class CoffeeServer {
+       def serveCoffee(coffee:CoffeeMaker): Unit ={
+       val cup = coffee.makeCoffee()
+       println(cup)
+       }
+      }
+
+      object Main extends App{
+      val serve = new CoffeeServer
+      serve.serveCoffee(new Cappuccino)
+      serve.serveCoffee(new Latte)
+      } 
+       
+  # Latte.scala
+       class Latte extends CoffeeMaker {
+       override def makeCoffee(): String = {
+       "Makes a Latte"
+       }
+      }
+    
+  # Output :-
+       Makes a Cappuccino
+       Makes a Latte
