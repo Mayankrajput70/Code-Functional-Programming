@@ -50,8 +50,38 @@ We create different functions to perform perticular tasks and we use -
    > Returns a function as a result
   
 ## Let's take A Look How We Can Impl It in Functional Programming
+ Account.scala
+  package com.knoldus.LSP
+  abstract class Account(var amount: Double)
 
-
+ CurrentAccount,scala
+  package com.knoldus.LSP
+  class CurrentAccount(var name: String, var amount1: Double) extends Account(amount1)
+  
+ Printer.scala 
+  package com.knoldus.LSP
+  case class Printer(message: String) {
+  def printMessage = println(message)
+  }
+  SavingAccount.scala
+  package com.knoldus.LSP
+  class SavingAccount(var name: String, var amount1: Double) extends Account(amount1)
+  
+ TestLsp.scala
+  object TestLSP {
+  val withdraw = (account: Account, amount:Double)=>{
+    account.amount = account.amount - amount
+    "ALERT: You've withdrawn Rs. " + amount + " Available Bal Rs.  " + account.amount
+  }
+  val deposit = (account: Account, amount:Double)=>{
+    account.amount = account.amount + amount
+    "UPDATE: Rs. " + amount + " has been deposited into your account. Avl Bal INR " + account.amount
+    
+ Output :-
+  ALERT: You've withdrawn Rs. 1500.0 Available Bal Rs.  43500.89
+  ALERT: You've withdrawn Rs. 2000.0 Available Bal Rs.  28000.23
+  UPDATE: Rs. 1000.0 has been deposited into your account. Avl Bal INR 44500.89
+    
 # Experience of functional Programming
 In functional programming approach we code less but do more in programming or to execute a task.
 
@@ -66,7 +96,7 @@ Functional programming appraoch
    - High-level modules should not depend on low-level modules. Both should depend on the abstraction.
    - Abstractions should not depend on details. Details should depend on abstractions.
 > High-level Module(or Class): Class that executes an action with a tool.
-> Low-level Module (or Class): The tool that is needed to execute the action
-> Abstraction: Represents an interface that connects the two Classes
+> Low-level Module (or Class): The tool that is needed to execute the action.
+> Abstraction: Represents an interface that connects the two Classes.
 
 ## Code implementation of DIP
