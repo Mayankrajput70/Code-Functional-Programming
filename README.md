@@ -39,13 +39,13 @@ We create different functions to perform perticular tasks and we use -
 # Function as a first class citizen
 - When we treat a function as a value, we consider it a first-class function.
 - In general, a first-class function can be:
- > Assigned to a variable
- > Passed as an argument to other functions
- > Returned as a value from other functions
+  Assigned to a variable
+  Passed as an argument to other functions
+  Returned as a value from other functions
 # Higher Order Function
    A higher-order function has at least one of the following properties:
-   > Takes one or more functions as parameters
-   > Returns a function as a result
+    Takes one or more functions as parameters
+    Returns a function as a result
   
 ## Let's take A Look How We Can Impl It in Functional Programming
    
